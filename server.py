@@ -1,5 +1,4 @@
 import csv
-import os
 from flask import Flask, render_template, url_for, request, redirect, send_from_directory
 app = Flask(__name__)
 
@@ -29,13 +28,13 @@ def write_to_file(data):
 
 
 def write_csv(data):
-    file_exists = os.path.isfile("./database.csv",)
     try:
         with open("./database.csv", mode='a', newline="" ) as csvfile:
-            writer = csv.DictWriter(csvfile, fieldnames = ["email","subject","message"])
-            if not file_exists:
-                writer.writeheader()
-            writer.writerow(data)
+            email = data['email']
+            subject = data['subject']
+            message = data['message']
+            csv_writer = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+            csv_writer.writerow([email,subject,message])
     except OSError as err:
         print(f'Something went wrong: {err}')
                         
