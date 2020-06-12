@@ -13,8 +13,6 @@ This is my personal portfolio website. It's a project made using Flask, a web fr
 > - Social Network
 > - Contact form
 
-*TODO - Projects section*
-
 #### Check it in here:
 [Portfolio: Jose Henrique Roveda](http://josehenriqueroveda.pythonanywhere.com/)
 
